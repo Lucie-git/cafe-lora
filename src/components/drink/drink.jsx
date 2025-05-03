@@ -16,9 +16,11 @@ export const Drink = ({ id, name, ordered, img, layers }) => {
           })}
         </div>
       </div>
-      <form className="drink__controls">
+      <form className="drink__controls" data-id={id}>
         <input type="hidden" className="order-id" value="1" />
-        <button className="order-btn">Objednat</button>
+        <button className={ordered ? 'order-btn order-btn--ordered' : 'order-btn'}>
+          {ordered ? 'zrušit' : 'objednat'}
+        </button>
       </form>
     </div>
   );

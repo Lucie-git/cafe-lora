@@ -12,8 +12,6 @@ const response = await fetch('http://localhost:4000/api/drinks');
 const json = await response.json();
 const drinks = json.data;
 
-console.log(drinks);
-
 document.querySelector('#root').innerHTML = render(
   <div className="page">
     <Header />
@@ -30,3 +28,17 @@ document.querySelector('#root').innerHTML = render(
 //mobile menu toggle
 // nav-btn
 // rolout-nav
+
+const formsElm = document.querySelectorAll('.drink__controls');
+formsElm.forEach((form) => {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const drinkId = drinks.find((drink) => drink.id === Number(form.dataset.id));
+    await fetch(`http://localhost:4000/api/drinks/${form.dataset.id}`, {
+      headers: { 'Content-Type': 'application/json' },
+      method: 'PATCH',
+      body: JSON.stringify([{ op: 'replace', path: '/ordered', value: !drinkId.ordered }]),
+    });
+    window.location.reload();
+  });
+});
