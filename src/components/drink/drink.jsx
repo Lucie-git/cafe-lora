@@ -1,6 +1,5 @@
 import { Layer } from '../layer/layer';
 import './drink.css';
-//layers = color, label (zadání:https://kodim.cz/czechitas/daweb/js2/cafe-lora-1/projekt/napoj)
 
 export const Drink = ({ id, name, ordered, img, layers }) => {
   return (

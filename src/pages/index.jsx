@@ -25,9 +25,16 @@ document.querySelector('#root').innerHTML = render(
   </div>,
 );
 
-//mobile menu toggle
-// nav-btn
-// rolout-nav
+const navBtn = document.querySelector('.nav-btn');
+navBtn.addEventListener('click', () => {
+  const rollout = document.querySelector('.rollout-nav');
+  rollout.classList.toggle('nav-closed');
+});
+
+const rolloutElm = document.querySelector('.rollout-nav');
+rolloutElm.addEventListener('click', () => {
+  rolloutElm.classList.add('nav-closed');
+});
 
 const formsElm = document.querySelectorAll('.drink__controls');
 formsElm.forEach((form) => {
