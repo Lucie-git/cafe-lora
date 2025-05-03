@@ -1,3 +1,4 @@
+import { Layer } from '../layer/layer';
 import './drink.css';
 //layers = color, label (zadání:https://kodim.cz/czechitas/daweb/js2/cafe-lora-1/projekt/napoj)
 
@@ -10,10 +11,7 @@ export const Drink = ({ id, name, ordered, img, layers }) => {
         </div>
         <div className="drink__info">
           <h3>{name}</h3>
-          <div className="layer">
-            <div className="layer__color" style={{ backgroundColor: '#613916' }} />
-            <div className="layer__label">espresso</div>
-          </div>
+          <Layer color="#feeeca" label="mléčná pěna" />
         </div>
       </div>
       <form className="drink__controls">
